@@ -30,7 +30,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [ "$(git rev-parse HEAD)" = "$(git rev-parse upstream/main)" ]; then
+          if git merge-base --is-ancestor upstream/main HEAD; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
