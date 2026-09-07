@@ -355,6 +355,7 @@ node --check loop-library/site/script.js
 node loop-library/scripts/check.mjs
 npm --prefix loop-library/worker run check
 python3 -m json.tool loop-library/site/.herenow/data.json >/dev/null
+python3 -m json.tool loop-library/site/.herenow/proxy.json >/dev/null
 python3 -m json.tool loop-library/scripts/seo-geo-query-benchmark.json >/dev/null
 git diff --check
 ```
@@ -384,5 +385,10 @@ will reveal voting without another site publish.
 Read [AGENTS.md](AGENTS.md) before editing loops or publishing the site. It
 contains the source-of-truth rules for database publishing, generated
 responses, form security, and clean-main deployments.
+
+The legacy `https://signals.forwardfuture.ai/*` host is maintained by the
+redirect-only Vercel project in
+[`infra/signals-forwardfuture-ai-redirect/`](infra/signals-forwardfuture-ai-redirect/).
+It permanently redirects paths to `https://signals.forwardfuture.com/*`.
 
 </details>
